@@ -71,7 +71,7 @@ def start(message):
 
         conn.close()
 
-        photo_path = "welcome_image.png" # картинка велкам
+        photo_path = "images/welcome_image.png" # картинка велкам
         with open(photo_path, "rb") as photo:
             bot.send_photo(
                 message.chat.id,
@@ -110,10 +110,10 @@ def callback_handler(call):
         elif call.data == "quest_nachalo":
             markup = InlineKeyboardMarkup()
             markup.add(
-                InlineKeyboardButton("БРОНИРОВАТЬ", url="https://t.me/@Proektor_straha"),
+                InlineKeyboardButton("БРОНИРОВАТЬ", url="https://t.me/Proektor_straha"),
                 InlineKeyboardButton("Назад", callback_data="quests")
             )
-            new_photo_path = "nachalo_image.png"
+            new_photo_path = "images/nachalo_image.png"
             with open(new_photo_path, "rb") as new_photo:
                 bot.edit_message_media(
                     media=InputMediaPhoto(
@@ -128,7 +128,7 @@ def callback_handler(call):
         elif call.data == "project":
             markup = InlineKeyboardMarkup()
             markup.add(InlineKeyboardButton("Назад", callback_data="back_main"))  # Удалены "Трофеи" и "Правила"
-            new_photo_path = "project_image.png"
+            new_photo_path = "images/project_image.png"
             with open(new_photo_path, "rb") as new_photo:
                 bot.edit_message_media(
                     media=InputMediaPhoto(new_photo, caption="Описание проекта..."),
